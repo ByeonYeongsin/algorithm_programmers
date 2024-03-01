@@ -1,14 +1,8 @@
 def solution(n):
-    next_num = n+1
-    n = str(bin(n))[2:]
-    n_one_nums = 0
-    for i in n: n_one_nums += int(i)
+    one_nums = bin(n).count('1')
+    n += 1
     while True:
-        next_bin = str(bin(next_num))[2:]
-        next_one_nums = 0
-        for i in next_bin: next_one_nums += int(i)
-        if n_one_nums == next_one_nums:
+        if one_nums == bin(n).count('1'):
             break
-        else:
-            next_num = next_num + 1
-    return next_num
+        n += 1
+    return n
